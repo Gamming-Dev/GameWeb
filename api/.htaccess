@@ -1,0 +1,7 @@
+# Bloqueia acesso direto a arquivos PHP (exceto via include/require)
+<FilesMatch "\.(php)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Permite POST/GET para endpoints específicos (configurado no index.php da API)

@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+
+# Se for arquivo/pasta real, serve direto
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Converte /dashboard para ?page=dashboard
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.php?page=$1 [QSA,L]
+
+# Converte /api/mining/update para api/mining/update.php
+RewriteRule ^api/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ api/$1/$2.php [QSA,L]
