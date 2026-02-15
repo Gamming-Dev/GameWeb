@@ -19,14 +19,20 @@ function generateUUID() {
 }
 
 function formatHashrate($hash) {
-    if ($hash >= 1000000000) {
-        return number_format($hash / 1000000000, 2) . ' EH/s';
+    if ($hash >= 1000000000000000000) {
+        return number_format($hash / 1000000000000000000, 2) . ' EH/s';
+    } elseif ($hash >= 1000000000000000) {
+        return number_format($hash / 1000000000000000, 2) . ' PH/s';
+    } elseif ($hash >= 1000000000000) {
+        return number_format($hash / 1000000000000, 2) . ' TH/s';
+    } elseif ($hash >= 1000000000) {
+        return number_format($hash / 1000000000, 2) . ' GH/s';
     } elseif ($hash >= 1000000) {
-        return number_format($hash / 1000000, 2) . ' PH/s';
+        return number_format($hash / 1000000, 2) . ' MH/s';
     } elseif ($hash >= 1000) {
-        return number_format($hash / 1000, 2) . ' TH/s';
+        return number_format($hash / 1000, 2) . ' KH/s';
     } else {
-        return number_format($hash, 2) . ' GH/s';
+        return number_format($hash, 2) . ' H/s';
     }
 }
 ?>

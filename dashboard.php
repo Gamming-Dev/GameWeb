@@ -79,44 +79,58 @@ $slots_per_room = 20; // 5x4 grid
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --core-black: #0a0a0f;
-            --core-dark: #12121a;
-            --core-darker: #0d0d12;
-            --core-card: #16161f;
-            --core-blue: #00d4ff;
-            --core-blue-glow: rgba(0, 212, 255, 0.3);
-            --core-blue-dark: #0099cc;
-            --core-orange: #ff6b35;
-            --core-green: #00ff88;
-            --core-green-glow: rgba(0, 255, 136, 0.3);
-            --core-yellow: #ffd700;
-            --core-red: #ff4757;
-            --core-text: #e0e0e0;
-            --core-text-dim: #8892b0;
-            --core-border: rgba(0, 212, 255, 0.15);
-            --room-locked: rgba(136, 146, 176, 0.3);
-        }
+    /* FUNDO CAVERNA (roxo vinho profundo) */
+    --core-black: #1b0f14;
+    --core-dark: #24161d;
+    --core-darker: #160c11;
+    --core-card: #2b1b23;
+
+    /* CRISTAL CIANO (cor principal da interface) */
+    --core-blue: #2de2e6;
+    --core-blue-glow: rgba(45, 226, 230, 0.35);
+    --core-blue-dark: #16b3b8;
+
+    /* ÂMBAR / LARANJA DO MASCOTE */
+    --core-orange: #ff9f1c;
+
+    /* OURO QUENTE (recompensas / destaque financeiro) */
+    --core-yellow: #ffbf3c;
+
+    /* VERDE CRISTAL (boost / positivo) */
+    --core-green: #3cffb3;
+    --core-green-glow: rgba(60, 255, 179, 0.3);
+
+    /* ALERTA / NEGATIVO */
+    --core-red: #ff4d4d;
+
+    /* TEXTO */
+    --core-text: #f5e6d3;
+    --core-text-dim: #bfae9c;
+
+    /* BORDA NEON CRISTAL */
+    --core-border: rgba(45, 226, 230, 0.18);
+
+    /* SALAS BLOQUEADAS */
+    --room-locked: rgba(191, 174, 156, 0.25);
+}
+
 
         body {
             font-family: 'Rajdhani', sans-serif;
             background: var(--core-black);
             color: var(--core-text);
             min-height: 100vh;
-            display: flex;
         }
 
-        /* SIDEBAR */
+        /* SIDEBAR - LAYOUT ORIGINAL DESKTOP */
         .sidebar {
-            width: 260px;
-            height: 100vh;
-            background: var(--core-dark);
-            border-right: 1px solid var(--core-border);
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
             display: flex;
             flex-direction: column;
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 100;
+            background: var(--core-dark);
+            border-bottom: 1px solid var(--core-border);
         }
 
         .sidebar-header {
@@ -152,59 +166,48 @@ $slots_per_room = 20; // 5x4 grid
         }
 
         .sidebar-nav {
-            flex: 1;
-            padding: 20px 15px;
-            overflow-y: auto;
-        }
-
-        .nav-section {
-            margin-bottom: 25px;
-        }
-
-        .nav-title {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: var(--core-text-dim);
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-            padding-left: 15px;
-            font-weight: 700;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 30px;
         }
 
         .nav-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 15px;
-            color: var(--core-text-dim);
+            padding: 16px 24px;
+            color: var(--core-text-dim) !important;
             text-decoration: none;
             border-radius: 10px;
             transition: all 0.3s;
-            margin-bottom: 4px;
-            font-weight: 500;
-            font-size: 15px;
+            white-space: nowrap;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .nav-item:hover {
             background: rgba(0, 212, 255, 0.08);
-            color: var(--core-text);
+            color: var(--core-text-bright) !important;
         }
 
         .nav-item.active {
             background: rgba(0, 212, 255, 0.15);
-            color: var(--core-blue);
+            color: var(--core-blue) !important;
             border-left: 3px solid var(--core-blue);
         }
 
-        .nav-icon {
-            width: 24px;
-            text-align: center;
-            font-size: 18px;
-        }
-
         .sidebar-footer {
-            padding: 20px;
-            border-top: 1px solid var(--core-border);
+            position: absolute !important;
+            right: 30px;
+            top: 20px;
+            border: none !important;
+            padding: 0;
         }
 
         .user-card {
@@ -258,12 +261,89 @@ $slots_per_room = 20; // 5x4 grid
             50% { opacity: 0.5; }
         }
 
-        /* MAIN CONTENT */
+        /* LAYOUT COM ANÚNCIOS - 3 COLUNAS */
+        .dashboard-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            gap: 0;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .ad-sidebar {
+            background: var(--core-card);
+            border: none;
+            border-radius: 0;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-sidebar:first-child {
+            border-right: 1px solid var(--core-border);
+        }
+
+        .ad-sidebar:last-child {
+            border-left: 1px solid var(--core-border);
+        }
+
+        .ad-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: var(--core-text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--core-border);
+            padding-bottom: 10px;
+        }
+
+        .ad-placeholder {
+            background: var(--core-darker);
+            border: 2px dashed var(--core-border);
+            border-radius: 12px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--core-text-dim);
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .ad-placeholder:hover {
+            border-color: var(--core-blue);
+            background: rgba(45, 226, 230, 0.05);
+        }
+
+        .ad-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .ad-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .ad-size {
+            font-size: 12px;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
         .main-content {
-            flex: 1;
-            margin-left: 260px;
+            max-width: 100%;
+            margin: 0;
             padding: 30px;
-            max-width: calc(100% - 260px);
         }
 
         .page-header {
@@ -725,39 +805,7 @@ $slots_per_room = 20; // 5x4 grid
             opacity: 0.5;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 1400px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 1200px) {
-            .mining-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        @media (max-width: 1024px) {
-            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; max-width: 100%; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .mining-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .main-content { padding: 20px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .mining-grid { grid-template-columns: repeat(2, 1fr); }
-            .block-timer { font-size: 40px; }
-            .room-selector { order: -1; width: 100%; justify-content: center; }
-            .section-header { flex-direction: column; align-items: flex-start; }
-        }
-
-        @media (max-width: 480px) {
-            .mining-grid { grid-template-columns: repeat(2, 1fr); }
-            .miner-slot { min-height: 80px; }
-            .slot-icon { font-size: 28px; }
-        }
-
-        /* MOBILE MENU */
+        /* MENU HAMBURGUER - MESMO PADRÃO DA WALLET */
         .menu-toggle {
             display: none;
             position: fixed;
@@ -773,75 +821,178 @@ $slots_per_room = 20; // 5x4 grid
             cursor: pointer;
         }
 
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 1400px) {
+            .dashboard-wrapper {
+                grid-template-columns: 250px 1fr 250px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard-wrapper {
+                grid-template-columns: 200px 1fr 200px;
+            }
+        }
+
         @media (max-width: 1024px) {
             .menu-toggle { display: block; }
+            
+            /* Sidebar vira menu lateral fixo */
+            .sidebar { 
+                position: fixed !important; 
+                top: 0; 
+                left: 0; 
+                width: 280px !important; 
+                height: 100vh !important; 
+                z-index: 100; 
+                transform: translateX(-100%); 
+                transition: transform 0.3s ease;
+                border-bottom: none;
+                border-right: 1px solid var(--core-border);
+            }
+            
+            .sidebar.open { 
+                transform: translateX(0); 
+            }
+            
+            /* Navegação vertical no mobile */
+            .sidebar-nav { 
+                flex-direction: column !important; 
+                align-items: flex-start !important; 
+                padding: 20px; 
+                gap: 5px; 
+                overflow-x: visible; 
+                overflow-y: auto;
+            }
+            
+            .nav-item { 
+                width: 100%; 
+                font-size: 16px; 
+                padding: 14px 18px; 
+                white-space: normal;
+            }
+            
+            /* Header com padding para não ficar atrás do menu */
+            .sidebar-header { 
+                padding-top: 70px; 
+            }
+            
+            /* Footer no bottom */
+            .sidebar-footer { 
+                position: relative !important; 
+                right: auto; 
+                top: auto; 
+                border-top: 1px solid var(--core-border) !important; 
+                padding: 20px; 
+                margin-top: auto; 
+            }
+            
+            /* Layout com anúncios vira coluna */
+            .dashboard-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0;
+            }
+            
+            .ad-sidebar {
+                position: relative;
+                top: 0;
+                order: 2;
+                border-radius: 16px;
+                margin: 0 20px;
+                border: 1px solid var(--core-border) !important;
+            }
+
+            .ad-sidebar:first-child,
+            .ad-sidebar:last-child {
+                border: 1px solid var(--core-border) !important;
+            }
+            
+            .main-content {
+                order: 1;
+                padding: 80px 20px 20px;
+            }
+            
+            .ad-sidebar:last-child {
+                order: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .mining-grid { grid-template-columns: repeat(2, 1fr); }
+            .block-timer { font-size: 40px; }
+            .room-selector { order: -1; width: 100%; justify-content: center; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            
+            .ad-sidebar {
+                padding: 15px;
+                margin: 0 15px;
+            }
+            
+            .ad-placeholder {
+                min-height: 200px;
+            }
+
+            .main-content {
+                padding: 80px 15px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mining-grid { grid-template-columns: repeat(2, 1fr); }
+            .miner-slot { min-height: 80px; }
+            .slot-icon { font-size: 28px; }
+        }
+        
+        .logo-icon img {
+            width: 45px;   /* ajuste conforme necessário */
+            height: auto;
         }
     </style>
 </head>
 <body>
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <a href="dashboard.php" class="logo">
-                <div class="logo-icon">⛏️</div>
+                <div class="logo-icon"> <img src="images/logo1.png" alt="Logo" /></div>
                 <span class="logo-text">MINERCORE</span>
             </a>
         </div>
 
         <nav class="sidebar-nav">
-            <div class="nav-section">
-                <div class="nav-title">Main Menu</div>
-                <a href="dashboard.php" class="nav-item active">
-                    <span class="nav-icon">📊</span>
-                    <span>Dashboard</span>
-                </a>
-                <a href="mining-room.php" class="nav-item">
-                    <span class="nav-icon">⛏️</span>
-                    <span>Mining Room</span>
-                </a>
-                <a href="games.php" class="nav-item">
-                    <span class="nav-icon">🎮</span>
-                    <span>Games</span>
-                </a>
-                <a href="market.php" class="nav-item">
-                    <span class="nav-icon">🛒</span>
-                    <span>Marketplace</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-title">Finance</div>
-                <a href="wallet.php" class="nav-item">
-                    <span class="nav-icon">💰</span>
-                    <span>Wallet</span>
-                </a>
-                <a href="referrals.php" class="nav-item">
-                    <span class="nav-icon">🤝</span>
-                    <span>Referrals</span>
-                </a>
-                <a href="history.php" class="nav-item">
-                    <span class="nav-icon">📜</span>
-                    <span>History</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-title">Account</div>
-                <a href="profile.php" class="nav-item">
-                    <span class="nav-icon">👤</span>
-                    <span>Profile</span>
-                </a>
-                <a href="settings.php" class="nav-item">
-                    <span class="nav-icon">⚙️</span>
-                    <span>Settings</span>
-                </a>
-                <a href="logout.php" class="nav-item">
-                    <span class="nav-icon">🚪</span>
-                    <span>Logout</span>
-                </a>
-            </div>
+            <a href="dashboard.php" class="nav-item active">📊 Dashboard</a>
+            <a href="games.php" class="nav-item">🎮 Games</a>
+            <a href="store.php" class="nav-item">🛒 Store</a>
+            <a href="market.php" class="nav-item">🛒 Marketplace</a>
+            <a href="earning.php" class="nav-item">💵 ADS/PTC</a>
+            <a href="history.php" class="nav-item">📜 History</a>
+            <a href="wallet.php" class="nav-item">💰 Wallet</a>
+            <a href="profile.php" class="nav-item">👤 Profile</a>
+            <a href="logout.php" class="nav-item">🚪 Logout</a>
         </nav>
 
         <div class="sidebar-footer">
@@ -858,174 +1009,226 @@ $slots_per_room = 20; // 5x4 grid
         </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-        <div class="page-header">
-            <h1 class="page-title">Dashboard</h1>
-            <p class="page-subtitle">Overview of your mining operation</p>
-        </div>
-
-        <!-- STATS GRID -->
-        <div class="stats-grid">
-            <!-- Hashrate -->
-            <div class="stat-card">
-                <div class="stat-header">
-                    <span class="stat-label">Your Hashrate</span>
-                    <div class="stat-icon">⚡</div>
-                </div>
-                <div class="stat-value"><?= number_format($final_hashrate, 2) ?> <small>GH/s</small></div>
-                <div class="stat-sub"><?= $active_miners ?> active miners</div>
-                <?php if ($boost_multiplier > 1): ?>
-                <div class="boost-badge">
-                    🔥 +<?= (($boost_multiplier - 1) * 100) ?>% BOOST
-                </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Miners -->
-            <div class="stat-card green">
-                <div class="stat-header">
-                    <span class="stat-label">Active Miners</span>
-                    <div class="stat-icon">🖥️</div>
-                </div>
-                <div class="stat-value"><?= $active_miners ?> <small>/ 20</small></div>
-                <div class="stat-sub">Available slots: <?= 20 - $active_miners ?></div>
-            </div>
-
-            <!-- Efficiency -->
-            <div class="stat-card orange">
-                <div class="stat-header">
-                    <span class="stat-label">Avg Efficiency</span>
-                    <div class="stat-icon">📈</div>
-                </div>
-                <div class="stat-value">100%</div>
-                <div class="stat-sub">Base: <?= number_format($total_hashrate, 2) ?> GH/s</div>
-            </div>
-
-            <!-- Estimate -->
-            <div class="stat-card yellow">
-                <div class="stat-header">
-                    <span class="stat-label">Est. per Block</span>
-                    <div class="stat-icon">💎</div>
-                </div>
-                <div class="stat-value"><?= number_format($estimate, 8) ?></div>
-                <div class="stat-sub">~<?= number_format($estimate * 144, 8) ?> BTC/day</div>
-            </div>
-        </div>
-
-        <!-- BLOCK TIMER -->
-        <div class="block-section">
-            <div class="block-content">
-                <div class="block-label">⏱️ Next Block In</div>
-                <div class="block-timer" id="countdown">10:00</div>
-                <div class="block-reward">
-                    <span class="block-reward-icon">💎</span>
-                    <span>Block Reward: <?= number_format($block_reward, 8) ?> BTC</span>
-                </div>
-                <!-- TEMPORARY: This timer resets on refresh. In production, it will use real block timestamp from database -->
-            </div>
-        </div>
-
-        <!-- MINING ROOM -->
-        <div class="room-section">
-            <div class="section-header">
-                <div class="section-title-wrapper">
-                    <h2 class="section-title">
-                        <span>⛏️</span>
-                        <span>Your Mining Room</span>
-                    </h2>
-                    
-                    <!-- ROOM SELECTOR: 5 squares -->
-                    <div class="room-selector">
-                        <?php for ($r = 1; $r <= 5; $r++): ?>
-                            <?php if ($r == $current_room): ?>
-                                <div class="room-slot active" title="Room <?= $r ?> (Current)"><?= $r ?></div>
-                            <?php elseif ($r <= 2): ?>
-                                <!-- First 2 rooms free, others locked until purchased -->
-                                <div class="room-slot available" title="Buy Room <?= $r ?>" onclick="alert('Room <?= $r ?> available for purchase!')">+</div>
-                            <?php else: ?>
-                                <div class="room-slot locked" title="Locked">🔒</div>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-                    </div>
-                </div>
-                
-                <a href="mining-room.php" class="section-link">
-                    View Full →
-                </a>
+    <!-- WRAPPER COM ANÚNCIOS -->
+    <div class="dashboard-wrapper">
+        
+        <!-- ANÚNCIOS LATERAL ESQUERDA -->
+        <aside class="ad-sidebar">
+            <div class="ad-title">📢 Sponsored</div>
+            
+            <div class="ad-placeholder">
+                <div class="ad-icon">🚀</div>
+                <div class="ad-text">Ad Space Available</div>
+                <div class="ad-size">300x250</div>
             </div>
             
-            <!-- MINING GRID: 5 columns x 4 rows = 20 slots -->
-            <div class="mining-grid">
-                <?php for ($i = 0; $i < 20; $i++): ?>
-                    <?php if (isset($miners[$i])): 
-                        $rarityClass = 'rarity-' . $miners[$i]['rarity'];
-                    ?>
-                    <div class="miner-slot occupied" onclick="location.href='mining-room.php'" title="<?= $miners[$i]['name'] ?>">
-                        <div class="slot-rarity <?= $rarityClass ?>"></div>
-                        <div class="slot-icon">🖥️</div>
-                        <div class="slot-label"><?= $miners[$i]['name'] ?></div>
-                        <div class="slot-hash"><?= number_format($miners[$i]['base_hashrate'], 1) ?> GH/s</div>
+            <div class="ad-placeholder">
+                <div class="ad-icon">💎</div>
+                <div class="ad-text">Premium Miner Sale</div>
+                <div class="ad-size">300x250</div>
+            </div>
+            
+            <div class="ad-placeholder">
+                <div class="ad-icon">🎮</div>
+                <div class="ad-text">New Game Launch</div>
+                <div class="ad-size">300x250</div>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO CENTRAL -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle">Overview of your mining operation</p>
+            </div>
+
+            <!-- STATS GRID -->
+            <div class="stats-grid">
+                <!-- Hashrate -->
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Your Hashrate</span>
+                        <div class="stat-icon">⚡</div>
                     </div>
-                    <?php else: ?>
-                    <div class="miner-slot" onclick="location.href='market.php'" title="Empty Slot - Click to buy miner">
-                        <div class="slot-icon">➕</div>
-                        <div class="slot-label">Empty</div>
+                    <div class="stat-value"><?= number_format($final_hashrate, 2) ?> <small>GH/s</small></div>
+                    <div class="stat-sub"><?= $active_miners ?> active miners</div>
+                    <?php if ($boost_multiplier > 1): ?>
+                    <div class="boost-badge">
+                        🔥 +<?= (($boost_multiplier - 1) * 100) ?>% BOOST
                     </div>
                     <?php endif; ?>
-                <?php endfor; ?>
-            </div>
-        </div>
-
-        <!-- RECENT ACTIVITY -->
-        <div class="activity-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span>📜</span>
-                    <span>Recent Activity</span>
-                </h2>
-                <a href="history.php" class="section-link">View All →</a>
-            </div>
-            
-            <div class="activity-list">
-                <?php if (empty($history)): ?>
-                <div class="empty-state">
-                    <div class="empty-state-icon">📭</div>
-                    <p>No recent activity</p>
-                    <p style="font-size: 14px; margin-top: 5px;">Start mining or playing games!</p>
                 </div>
-                <?php else: ?>
-                    <?php foreach ($history as $item): 
-                        $typeClass = $item['type'];
-                        $icon = $item['type'] == 'block_reward' ? '⛏️' : 
-                               ($item['type'] == 'game_bonus' ? '🎮' : 
-                               ($item['type'] == 'withdrawal' ? '💸' : '💰'));
-                        $title = $item['type'] == 'block_reward' ? 'Block Reward' : 
-                                ($item['type'] == 'game_bonus' ? 'Game Bonus' : 
-                                ($item['type'] == 'withdrawal' ? 'Withdrawal' : 'Deposit'));
-                        $amountClass = $item['amount'] < 0 ? 'negative' : '';
-                        $sign = $item['amount'] < 0 ? '' : '+';
-                    ?>
-                    <div class="activity-item <?= $typeClass ?>">
-                        <div class="activity-icon"><?= $icon ?></div>
-                        <div class="activity-content">
-                            <div class="activity-title"><?= $title ?></div>
-                            <div class="activity-time"><?= date('M d, Y H:i', strtotime($item['created_at'])) ?></div>
-                        </div>
-                        <div class="activity-amount <?= $amountClass ?>">
-                            <?= $sign ?><?= number_format($item['amount'], 8) ?> BTC
+
+                <!-- Miners -->
+                <div class="stat-card green">
+                    <div class="stat-header">
+                        <span class="stat-label">Active Miners</span>
+                        <div class="stat-icon">🖥️</div>
+                    </div>
+                    <div class="stat-value"><?= $active_miners ?> <small>/ 20</small></div>
+                    <div class="stat-sub">Available slots: <?= 20 - $active_miners ?></div>
+                </div>
+
+                <!-- Efficiency -->
+                <div class="stat-card orange">
+                    <div class="stat-header">
+                        <span class="stat-label">Avg Efficiency</span>
+                        <div class="stat-icon">📈</div>
+                    </div>
+                    <div class="stat-value">100%</div>
+                    <div class="stat-sub">Base: <?= number_format($total_hashrate, 2) ?> GH/s</div>
+                </div>
+
+                <!-- Estimate -->
+                <div class="stat-card yellow">
+                    <div class="stat-header">
+                        <span class="stat-label">Est. per Block</span>
+                        <div class="stat-icon">💎</div>
+                    </div>
+                    <div class="stat-value"><?= number_format($estimate, 8) ?></div>
+                    <div class="stat-sub">~<?= number_format($estimate * 144, 8) ?> BTC/day</div>
+                </div>
+            </div>
+
+            <!-- BLOCK TIMER -->
+            <div class="block-section">
+                <div class="block-content">
+                    <div class="block-label">⏱️ Next Block In</div>
+                    <div class="block-timer" id="countdown">10:00</div>
+                    <div class="block-reward">
+                        <span class="block-reward-icon">💎</span>
+                        <span>Block Reward: <?= number_format($block_reward, 8) ?> BTC</span>
+                    </div>
+                    <!-- TEMPORARY: This timer resets on refresh. In production, it will use real block timestamp from database -->
+                </div>
+            </div>
+
+            <!-- MINING ROOM -->
+            <div class="room-section">
+                <div class="section-header">
+                    <div class="section-title-wrapper">
+                        <h2 class="section-title">
+                            <span>⛏️</span>
+                            <span>Your Mining Room</span>
+                        </h2>
+                        
+                        <!-- ROOM SELECTOR: 5 squares -->
+                        <div class="room-selector">
+                            <?php for ($r = 1; $r <= 5; $r++): ?>
+                                <?php if ($r == $current_room): ?>
+                                    <div class="room-slot active" title="Room <?= $r ?> (Current)"><?= $r ?></div>
+                                <?php elseif ($r <= 2): ?>
+                                    <!-- First 2 rooms free, others locked until purchased -->
+                                    <div class="room-slot available" title="Buy Room <?= $r ?>" onclick="alert('Room <?= $r ?> available for purchase!')">+</div>
+                                <?php else: ?>
+                                    <div class="room-slot locked" title="Locked">🔒</div>
+                                <?php endif; ?>
+                            <?php endfor; ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    
+                    <a href="mining-room.php" class="section-link">
+                        View Full →
+                    </a>
+                </div>
+                
+                <!-- MINING GRID: 5 columns x 4 rows = 20 slots -->
+                <div class="mining-grid">
+                    <?php for ($i = 0; $i < 20; $i++): ?>
+                        <?php if (isset($miners[$i])): 
+                            $rarityClass = 'rarity-' . $miners[$i]['rarity'];
+                        ?>
+                        <div class="miner-slot occupied" onclick="location.href='mining-room.php'" title="<?= $miners[$i]['name'] ?>">
+                            <div class="slot-rarity <?= $rarityClass ?>"></div>
+                            <div class="slot-icon">🖥️</div>
+                            <div class="slot-label"><?= $miners[$i]['name'] ?></div>
+                            <div class="slot-hash"><?= number_format($miners[$i]['base_hashrate'], 1) ?> GH/s</div>
+                        </div>
+                        <?php else: ?>
+                        <div class="miner-slot" onclick="location.href='market.php'" title="Empty Slot - Click to buy miner">
+                            <div class="slot-icon">➕</div>
+                            <div class="slot-label">Empty</div>
+                        </div>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                </div>
             </div>
-        </div>
-    </main>
+
+            <!-- RECENT ACTIVITY -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>📜</span>
+                        <span>Recent Activity</span>
+                    </h2>
+                    <a href="history.php" class="section-link">View All →</a>
+                </div>
+                
+                <div class="activity-list">
+                    <?php if (empty($history)): ?>
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No recent activity</p>
+                        <p style="font-size: 14px; margin-top: 5px;">Start mining or playing games!</p>
+                    </div>
+                    <?php else: ?>
+                        <?php foreach ($history as $item): 
+                            $typeClass = $item['type'];
+                            $icon = $item['type'] == 'block_reward' ? '⛏️' : 
+                                   ($item['type'] == 'game_bonus' ? '🎮' : 
+                                   ($item['type'] == 'withdrawal' ? '💸' : '💰'));
+                            $title = $item['type'] == 'block_reward' ? 'Block Reward' : 
+                                    ($item['type'] == 'game_bonus' ? 'Game Bonus' : 
+                                    ($item['type'] == 'withdrawal' ? 'Withdrawal' : 'Deposit'));
+                            $amountClass = $item['amount'] < 0 ? 'negative' : '';
+                            $sign = $item['amount'] < 0 ? '' : '+';
+                        ?>
+                        <div class="activity-item <?= $typeClass ?>">
+                            <div class="activity-icon"><?= $icon ?></div>
+                            <div class="activity-content">
+                                <div class="activity-title"><?= $title ?></div>
+                                <div class="activity-time"><?= date('M d, Y H:i', strtotime($item['created_at'])) ?></div>
+                            </div>
+                            <div class="activity-amount <?= $amountClass ?>">
+                                <?= $sign ?><?= number_format($item['amount'], 8) ?> BTC
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </main>
+
+        <!-- ANÚNCIOS LATERAL DIREITA -->
+        <aside class="ad-sidebar">
+            <div class="ad-title">🔥 Trending</div>
+            
+            <div class="ad-placeholder">
+                <div class="ad-icon">⚡</div>
+                <div class="ad-text">Boost Your Hashrate</div>
+                <div class="ad-size">300x250</div>
+            </div>
+            
+            <div class="ad-placeholder">
+                <div class="ad-icon">🏆</div>
+                <div class="ad-text">Tournament Event</div>
+                <div class="ad-size">300x250</div>
+            </div>
+            
+            <div class="ad-placeholder">
+                <div class="ad-icon">🎁</div>
+                <div class="ad-text">Daily Bonus</div>
+                <div class="ad-size">300x250</div>
+            </div>
+        </aside>
+        
+    </div>
 
     <script>
-        // Mobile sidebar toggle
+        // Mobile sidebar toggle - MESMA FUNÇÃO DA WALLET
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
         }
 
         // TEMPORARY: Client-side countdown (resets on refresh)

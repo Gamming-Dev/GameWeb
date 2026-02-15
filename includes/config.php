@@ -6,9 +6,9 @@ define('ENVIRONMENT', 'development'); // production | development
 
 // Database (altere para seus dados de hospedagem)
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'minercore_db');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'u639477934_minercore');
+define('DB_USER', 'u639477934_miner_dev');
+define('DB_PASS', '$g99n(A[V[l-');
 define('DB_CHARSET', 'utf8mb4');
 
 // URLs

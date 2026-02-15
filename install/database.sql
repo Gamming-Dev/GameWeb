@@ -23,7 +23,7 @@ CREATE TABLE miner_types (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description TEXT,
-    base_hashrate DECIMAL(10,2) NOT NULL COMMENT 'GH/s',
+    base_hashrate DECIMAL(10,2) NOT NULL COMMENT 'H/s',
     power_watts INT UNSIGNED DEFAULT 100,
     price DECIMAL(18,8) NOT NULL,
     max_supply INT UNSIGNED NULL COMMENT 'NULL = ilimitado',
@@ -132,3 +132,47 @@ INSERT INTO miner_types (name, description, base_hashrate, power_watts, price, r
 
 -- Criar bloco inicial
 INSERT INTO blocks (block_number, reward_pool, status) VALUES (1, 0.00010000, 'mining');
+
+-- Criar tabela de carteiras (SEM foreign key para evitar erro de charset)
+CREATE TABLE IF NOT EXISTS user_wallets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    wallet_address VARCHAR(42) NOT NULL,
+    wallet_type VARCHAR(20) NOT NULL,
+    network VARCHAR(10) NOT NULL,
+    is_primary TINYINT(1) DEFAULT 0,
+    balance_usd DECIMAL(15,2) DEFAULT 0.00,
+    signature TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_wallet_network (wallet_address, network),
+    KEY idx_user_id (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Criar tabela de transações (SEM foreign key)
+CREATE TABLE IF NOT EXISTS wallet_transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    wallet_id INT,
+    type ENUM('deposit', 'withdrawal', 'reward', 'purchase') NOT NULL,
+    amount DECIMAL(20,8) NOT NULL,
+    currency VARCHAR(10) NOT NULL,
+    network VARCHAR(10) NOT NULL,
+    tx_hash VARCHAR(66),
+    status ENUM('pending', 'confirmed', 'failed') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    KEY idx_user_id (user_id),
+    KEY idx_wallet_id (wallet_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Criar tabela de saldos dos usuários (SEM foreign key)
+CREATE TABLE user_balances (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    usdc_offline DECIMAL(20, 8) DEFAULT 0.00000000,
+    mcore DECIMAL(20, 8) DEFAULT 0.00000000,
+    btc DECIMAL(20, 8) DEFAULT 0.00000000,
+    eth DECIMAL(20, 16) DEFAULT 0.0000000000000000,
+    sol DECIMAL(20, 16) DEFAULT 0.0000000000000000,
+    UNIQUE KEY unique_user (user_id)
+);

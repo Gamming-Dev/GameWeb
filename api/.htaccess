@@ -1,7 +1,5 @@
-# Bloqueia acesso direto a arquivos PHP (exceto via include/require)
+RewriteEngine Off
 <FilesMatch "\.(php)$">
-    Order deny,allow
-    Deny from all
+    Order Allow,Deny
+    Allow from all
 </FilesMatch>
-
-# Permite POST/GET para endpoints específicos (configurado no index.php da API)

@@ -1,0 +1,54 @@
+2026-02-14 04:34:19 - User: NONE
+Input: {"user_id":1,"wallet_address":"0xd671924331e6f51acdbf503dc3330cb4b2acfc8f","wallet_type":"metamask","network":"bnb","signature":"0x9db2e7b0e6903ada7fee0e544f76e3a6a9095fc4e26343c95f053973cc52cf982e1123677ab49c7981942a1bb4b7d23cdb1d39d217c32ddb6d3a42147ab64b8c1b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0xd671924331e6f51acdbf503dc3330cb4b2acfc8f\nTimestamp: 1771043655889"}
+
+2026-02-14 04:38:14 - User: NONE
+Input: {"user_id":1,"wallet_address":"0xd671924331e6f51acdbf503dc3330cb4b2acfc8f","wallet_type":"metamask","network":"bnb","signature":"0x77a1e4df71bfe502614deca00e73fdb578b172f141265667c14425d72504b18b37c3a6ecae046892228b6005ff4d637796f934a07ac90da04649fb2e20cd11c71b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0xd671924331e6f51acdbf503dc3330cb4b2acfc8f\nTimestamp: 1771043890428"}
+
+2026-02-14 04:52:05 - User: NONE
+Input: {"user_id":1,"wallet_address":"0xd671924331e6f51acdbf503dc3330cb4b2acfc8f","wallet_type":"metamask","network":"bnb","signature":"0x98a1c91aee781af682e8ad51144f9e791a2a173392cbb0d5e296fb66a0f554f609433069f219646b0fb08d915c2c392c4a2fbd56a27d8a0da0c5bdae18c102f11b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0xd671924331e6f51acdbf503dc3330cb4b2acfc8f\nTimestamp: 1771044721808"}
+
+2026-02-14 05:00:18 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0xd70b0ae1dcffdd576681c909e74bbbb5017a26b1fea1bc3dfc5101b7190d4aca1fdc799e0e96f5bac40d4535dfe7f03b689f59f57f455643c31ee84d748e6b171b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771045214753","replace":false}
+
+2026-02-14 05:13:44 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0xd6ef2d8b8050a61d0d7aca469618ae36662a61578fa4057c19ce54aa665ad8bf36ce8637f22b0a85fe0cccb7cef6011ce88a073b7e5d9011f0b5b9612a29655e1c","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771046020835","replace":false}
+
+2026-02-14 05:36:52 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0x1e441c12f2db9bfd274f95d9320bbcadb21046025ed06a3ab9dbced2f519996b18414afcd05a537a5d9b5dd82c1c62f7878e3db92cb32e7508a48ba02f4390631c","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771047408182","replace":false}
+
+2026-02-14 05:45:58 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0xccc62f937e559eb814671100401fec8d11932209eac40c7ddc91eded477c351c285b216f007f90dd55795546bf11a09d46fc0cdcaef34cadf24487251b74e2f31b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771047952625","replace":false}
+
+2026-02-14 05:48:53 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0x5554850dcade2ae6dada59c63d77edd63b544151ce788481927948b6aaa0daf365058df9e17f35d1e6e22cc0d1e5596e316416abd467fdc1a4c5baf526aa16bb1b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771048131045","replace":false}
+
+2026-02-14 06:39:09 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0x15edcaff155448bca9e73bd2663fa62ab8aea7d8c0b2bb6bfc2851ba2673435e4d8d3d163952bbe548d99d892ae7ac0e7c42f6307b0f49f702aa7e9f9b7b789e1c","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771051145942","replace":false}
+
+2026-02-14 15:36:00 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0x25e0518988b3c5b130de63f034c7b5b0cb84ffd33572a24c6d988c31cfda2a5252f39b9bfcf155286f2d1766584f66e22da2da2d75738bacd8b4f74d18d8bd761b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771083359414","replace":false}
+
+2026-02-14 16:26:14 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0xbf62c494df1ccf122df3c8253d1835bc3d5498c873654b9e66b7b3e5176dcfeb22acf305a7502a811fd013fdd77a8a7108a5317adfbffd4ecc9dc56097ead1801c","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771086372138","replace":false}
+
+2026-02-14 17:00:35 - User: NONE
+Input: {"user_id":2,"wallet_address":"0x6c0fd07fd9eae9a73b7b46f821c07ac695f31927","wallet_type":"metamask","network":"bnb","signature":"0x7755496d191a1c21922850e5361e1497eb34b2de9d04edd5be09a8e2ad9a3c7a24128ccdc3f3126828ed6429ab1140321cba349c9ac2fb335d75e30df08f63e51c","message":"MinerCore Wallet Connection\nUser ID: 2\nNetwork: BNB\nAddress: 0x6c0fd07fd9eae9a73b7b46f821c07ac695f31927\nTimestamp: 1771088432242","replace":false}
+
+2026-02-14 17:12:37 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0xb774b70e07440993650ee6ee8b0bb2dcf05a0cfd06b7a304d05904fe098d35c507ea0dbeb5d1b6112c23b18afaa4b3013165972508e504dde4ddc7c7ca758b961b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771089155114","replace":false}
+
+2026-02-14 17:33:51 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"polygon","signature":"0xd25813333f8d98889da49df086ad8ee9c96c28741fbf0e546dcf15a542a2035a23bdb03d7b6f34a8d23a77a82a418208ce8cf1f548477682ae0f4d5322f5f7d41b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: POLYGON\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771090429295","replace":false}
+
+2026-02-14 18:21:06 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2","wallet_type":"metamask","network":"bnb","signature":"0x65b9a9359e15a28f9484306ffae17c5833d45a155e6d399d1e015ef69531b45f02a250d2892443aa1509bc91e546feb8eee0651bf9756afcc15a3d34c2e2ac011c","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x20c58f9b1b048866434ccec93b9c0004d2a9a9b2\nTimestamp: 1771093264676","replace":false}
+
+2026-02-14 18:24:10 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x0ed48da854f373c5457d6b635302372a099f2969","wallet_type":"metamask","network":"bnb","signature":"0x52521b99d6e8c8f07385e2f3ee8b47e1b898babf057345540c07e1583f7936404eae1b5b11a5baed8bfe79f839ea75a87707c563d13ba55f11ce9daf2e8aa32f1b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: BNB\nAddress: 0x0ed48da854f373c5457d6b635302372a099f2969\nTimestamp: 1771093446371","replace":false}
+
+2026-02-14 18:48:27 - User: NONE
+Input: {"user_id":1,"wallet_address":"0x0ed48da854f373c5457d6b635302372a099f2969","wallet_type":"metamask","network":"polygon","signature":"0xd0a5a6514505369a08bc5d2144ab87231a0f770fd0b96a6abb60c57ac904f0c559190b048e65ba74279fb1bee22b4145cfac6663f1bc6e7baf0bc3afb8cf3d911b","message":"MinerCore Wallet Connection\nUser ID: 1\nNetwork: POLYGON\nAddress: 0x0ed48da854f373c5457d6b635302372a099f2969\nTimestamp: 1771094905199","replace":false}
+
+2026-02-14 18:52:01 - User: NONE
+Input: {"user_id":2,"wallet_address":"0x6c0fd07fd9eae9a73b7b46f821c07ac695f31927","wallet_type":"metamask","network":"polygon","signature":"0x179344060798b09a6fc1b35c892a74aa464d08faa698b4efaaa704a4fdf423664df0762b2beae7170dc32784ed23b1b3cb775ed714442c985ef11ad1ae4c3c481c","message":"MinerCore Wallet Connection\nUser ID: 2\nNetwork: POLYGON\nAddress: 0x6c0fd07fd9eae9a73b7b46f821c07ac695f31927\nTimestamp: 1771095113341","replace":false}
+

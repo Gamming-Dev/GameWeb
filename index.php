@@ -18,15 +18,25 @@ $isLoggedIn = isset($_SESSION['user_id']);
         }
 
         :root {
-            --core-black: #0a0a0f;
-            --core-dark: #12121a;
-            --core-blue: #00d4ff;
-            --core-blue-glow: rgba(0, 212, 255, 0.3);
-            --core-orange: #ff6b35;
-            --core-green: #00ff88;
-            --core-text: #e0e0e0;
-            --core-text-dim: #8892b0;
-        }
+    /* FUNDO CAVERNA PROFUNDO */
+    --core-black: #1b0f14;
+    --core-dark: #24161d;
+
+    /* CRISTAL CIANO (principal da UI) */
+    --core-blue: #2de2e6;
+    --core-blue-glow: rgba(45, 226, 230, 0.35);
+
+    /* ÂMBAR DO MASCOTE */
+    --core-orange: #ff9f1c;
+
+    /* VERDE CRISTAL (boost/positivo) */
+    --core-green: #3cffb3;
+
+    /* TEXPOGRAFIA */
+    --core-text: #f5e6d3;
+    --core-text-dim: #bfae9c;
+}
+
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -417,8 +427,8 @@ $isLoggedIn = isset($_SESSION['user_id']);
             <div class="badge">⚡ NEW: Real Mining Coming Soon</div>
             <h1>Mine Virtual.<br>Earn Real.</h1>
             <p class="hero-subtitle">
-                Brazil's most advanced crypto mining simulator. 
-                Build your mining farm, play games to multiply earnings, and withdraw real cryptocurrencies.
+                The top cryptocurrency mining simulator.
+                Build your mining farm, play to multiply your earnings, and withdraw real cryptocurrency.
             </p>
             
             <div style="margin-bottom: 40px;">
@@ -501,7 +511,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <section class="cta">
         <div class="cta-box">
             <h2>Ready to start?</h2>
-            <p>Join thousands of Brazilian miners. Create your free account in 30 seconds.</p>
+            <p>Join thousands of miners around the world. Create your free account in 30 seconds.</p>
             <a href="register.php" class="btn btn-primary btn-large">
                 Create Free Account
             </a>
@@ -509,7 +519,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     </section>
 
     <footer>
-        <p>&copy; 2024 MinerCore. All rights reserved.</p>
+        <p>&copy; 2026 MinerCore. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: 14px;">
             Mining simulator for entertainment purposes. Cryptocurrencies involve risks.
         </p>

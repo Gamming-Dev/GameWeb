@@ -20,22 +20,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Validações
     if (strlen($username) < 3 || strlen($username) > 20) {
-        $error = 'Usuário deve ter entre 3 e 20 caracteres';
+        $error = 'Username must be between 3 and 20 characters.';
     } elseif (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
-        $error = 'Usuário só pode conter letras, números e underline';
+        $error = 'Username can only contain letters, numbers, and underscores.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'Email inválido';
+        $error = 'Invalid Email Address';
     } elseif (strlen($password) < 6) {
-        $error = 'Senha deve ter no mínimo 6 caracteres';
+        $error = 'The password must be at least 6 characters long.';
     } elseif ($password !== $confirm_password) {
-        $error = 'Senhas não conferem';
+        $error = 'Passwords Error.';
     } else {
         // Verifica se usuário/email existe
         $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
         $stmt->execute([$username, $email]);
         
         if ($stmt->fetch()) {
-            $error = 'Usuário ou email já cadastrado';
+            $error = 'Username or Email Already Registered';
         } else {
             // Gera código de referral único
             $my_referral = generateReferralCode();
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, NOW())");
             
             if ($stmt->execute([$username, $email, $password_hash, $my_referral, $referred_by])) {
-                $success = 'Conta criada com sucesso! Redirecionando...';
+                $success = 'Account Created Successfully! Redirecting...';
                 
                 // Auto login
                 $user_id = $pdo->lastInsertId();
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 header("Refresh: 2; URL=dashboard.php");
             } else {
-                $error = 'Erro ao criar conta. Tente novamente.';
+                $error = 'Error Creating Account. Please try again..';
             }
         }
     }
@@ -82,23 +82,35 @@ function generateReferralCode() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Conta - MinerCore</title>
+    <title>Create Account - MinerCore</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         /* Mesmo CSS do login com adições */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --core-black: #0a0a0f;
-            --core-dark: #12121a;
-            --core-blue: #00d4ff;
-            --core-blue-glow: rgba(0, 212, 255, 0.3);
-            --core-orange: #ff6b35;
-            --core-green: #00ff88;
-            --core-red: #ff4757;
-            --core-text: #e0e0e0;
-            --core-text-dim: #8892b0;
-        }
+    /* FUNDO CAVERNA */
+    --core-black: #1b0f14;
+    --core-dark: #24161d;
+
+    /* CRISTAL CIANO */
+    --core-blue: #2de2e6;
+    --core-blue-glow: rgba(45, 226, 230, 0.35);
+
+    /* ÂMBAR DO MASCOTE */
+    --core-orange: #ff9f1c;
+
+    /* VERDE CRISTAL */
+    --core-green: #3cffb3;
+
+    /* ALERTA */
+    --core-red: #ff4d4d;
+
+    /* TEXTO */
+    --core-text: #f5e6d3;
+    --core-text-dim: #bfae9c;
+}
+
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -117,7 +129,7 @@ function generateReferralCode() {
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(45, 226, 230, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             top: 0;
@@ -132,7 +144,7 @@ function generateReferralCode() {
 
         .auth-box {
             background: var(--core-dark);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(45, 226, 230, 0.25);
             border-radius: 20px;
             padding: 40px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -201,13 +213,14 @@ function generateReferralCode() {
 
         input {
             width: 100%;
-            padding: 14px 18px;
-            background: rgba(10, 10, 15, 0.8);
-            border: 2px solid rgba(0, 212, 255, 0.2);
-            border-radius: 10px;
+            padding: 18px 22px;
+            background: rgba(27, 15, 20, 0.9);
+            border: 2px solid rgba(45, 226, 230, 0.25);
+            border-radius: 12px;
             color: var(--core-text);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 600;
             transition: all 0.3s;
         }
 
@@ -222,8 +235,8 @@ function generateReferralCode() {
         }
 
         .referral-box {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px dashed rgba(0, 212, 255, 0.3);
+            background: rgba(45, 226, 230, 0.06);
+            border: 1px dashed rgba(45, 226, 230, 0.35);
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 20px;
@@ -237,7 +250,7 @@ function generateReferralCode() {
         .btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, var(--core-blue), #0099cc);
+            background: linear-gradient(135deg, var(--core-blue), var(--core-orange));
             border: none;
             border-radius: 10px;
             color: var(--core-black);
@@ -324,7 +337,7 @@ function generateReferralCode() {
             <div class="logo-center">
                 <div class="logo-icon">⛏️</div>
                 <h1>MINERCORE</h1>
-                <p class="subtitle">Crie sua conta gratuita</p>
+                <p class="subtitle">Create Your Free Account</p>
             </div>
 
             <?php if ($error): ?>
@@ -338,7 +351,7 @@ function generateReferralCode() {
             <form method="POST" action="" id="registerForm">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Usuário</label>
+                        <label>Username</label>
                         <input type="text" name="username" required 
                                placeholder="miner_pro" maxlength="20"
                                value="<?= $_POST['username'] ?? '' ?>">
@@ -346,46 +359,46 @@ function generateReferralCode() {
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" required 
-                               placeholder="voce@email.com"
+                               placeholder="your@email.com"
                                value="<?= $_POST['email'] ?? '' ?>">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Senha</label>
+                        <label>Password</label>
                         <input type="password" name="password" required 
-                               placeholder="Mínimo 6 caracteres" minlength="6">
+                               placeholder="Minimum 6 characters" minlength="6">
                     </div>
                     <div class="form-group">
-                        <label>Confirmar Senha</label>
+                        <label>Confirm Password</label>
                         <input type="password" name="confirm_password" required 
-                               placeholder="Repita a senha">
+                               placeholder="Repeat Password">
                     </div>
                 </div>
 
                 <div class="referral-box">
-                    <label>Código de Indicação (opcional)</label>
+                    <label>Referral Code (Optional)</label>
                     <input type="text" name="referral_code" 
-                           placeholder="Código do amigo"
+                           placeholder="Referral Code"
                            value="<?= $_GET['ref'] ?? '' ?>"
                            style="background: rgba(0,0,0,0.3);">
                 </div>
 
                 <button type="submit" class="btn" id="submitBtn">
-                    Criar Conta →
+                    Create Account →
                 </button>
             </form>
 
             <div class="links">
-                <p>Já tem uma conta? <a href="login.php">Entrar</a></p>
-                <p style="margin-top: 8px;"><a href="index.php">← Voltar para home</a></p>
+                <p>Do you Already have an Account? <a href="login.php">Login</a></p>
+                <p style="margin-top: 8px;"><a href="index.php">← Return to Home</a></p>
             </div>
 
             <p class="terms">
-                Ao criar uma conta, você concorda com nossos 
-                <a href="#">Termos de Serviço</a> e 
-                <a href="#">Política de Privacidade</a>.
+                By creating an Account, You Agree to our 
+                <a href="#">Terms of Service</a> e 
+                <a href="#">Privacy Policy</a>.
             </p>
         </div>
     </div>
@@ -395,7 +408,7 @@ function generateReferralCode() {
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
-            btn.textContent = 'Criando conta...';
+            btn.textContent = 'Creating Account...';
         });
     </script>
 </body>

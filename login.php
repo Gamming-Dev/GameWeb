@@ -42,16 +42,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --core-black: #0a0a0f;
-            --core-dark: #12121a;
-            --core-blue: #00d4ff;
-            --core-blue-glow: rgba(0, 212, 255, 0.3);
-            --core-orange: #ff6b35;
-            --core-green: #00ff88;
-            --core-red: #ff4757;
-            --core-text: #e0e0e0;
-            --core-text-dim: #8892b0;
-        }
+    /* FUNDO CAVERNA */
+    --core-black: #1b0f14;
+    --core-dark: #24161d;
+
+    /* CRISTAL CIANO */
+    --core-blue: #2de2e6;
+    --core-blue-glow: rgba(45, 226, 230, 0.35);
+
+    /* ÂMBAR DO MASCOTE */
+    --core-orange: #ff9f1c;
+
+    /* VERDE CRISTAL */
+    --core-green: #3cffb3;
+
+    /* ALERTA */
+    --core-red: #ff4d4d;
+
+    /* TEXTO */
+    --core-text: #f5e6d3;
+    --core-text-dim: #bfae9c;
+}
+
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -83,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .auth-box {
             background: var(--core-dark);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(45, 226, 230, 0.25);
             border-radius: 20px;
             padding: 50px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -150,12 +162,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         input {
             width: 100%;
             padding: 15px 20px;
-            background: rgba(10, 10, 15, 0.8);
-            border: 2px solid rgba(0, 212, 255, 0.2);
+            background: rgba(27, 15, 20, 0.9);
+            border: 2px solid rgba(45, 226, 230, 0.25);
             border-radius: 10px;
             color: var(--core-text);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             transition: all 0.3s;
         }
 
@@ -176,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, var(--core-blue), #0099cc);
+            background: linear-gradient(135deg, var(--core-blue), var(--core-orange));
             border: none;
             border-radius: 10px;
             color: var(--core-black);
@@ -232,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             content: '';
             flex: 1;
             height: 1px;
-            background: rgba(0, 212, 255, 0.2);
+            background: rgba(45, 226, 230, 0.25);
         }
 
         .divider span {
@@ -253,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="logo-center">
                 <div class="logo-icon">⛏️</div>
                 <h1>MINERCORE</h1>
-                <p class="subtitle">Acesse sua conta</p>
+                <p class="subtitle">Access Your Account</p>
             </div>
 
             <?php if ($error): ?>
@@ -262,29 +274,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="POST" action="">
                 <div class="form-group">
-                    <label>Usuário ou Email</label>
+                    <label>Username or Email</label>
                     <div class="input-wrapper">
                         <input type="text" name="username" required autofocus 
-                               placeholder="seu_usuario ou email@exemplo.com">
+                               placeholder="your_username or email@example.com">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Senha</label>
+                    <label>Passwword</label>
                     <div class="input-wrapper">
                         <input type="password" name="password" required 
                                placeholder="••••••••">
                     </div>
                 </div>
 
-                <button type="submit" class="btn">Entrar</button>
+                <button type="submit" class="btn">Login</button>
             </form>
 
-            <div class="divider"><span>ou</span></div>
+            <div class="divider"><span>or</span></div>
 
             <div class="links">
-                <p>Não tem uma conta? <a href="register.php">Criar conta grátis</a></p>
-                <p style="margin-top: 10px;"><a href="index.php">← Voltar para home</a></p>
+                <p>Don't Have an Account? <a href="register.php">Create Free Account</a></p>
+                <p style="margin-top: 10px;"><a href="index.php">← Return to Home</a></p>
             </div>
         </div>
     </div>
